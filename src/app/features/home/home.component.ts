@@ -24,27 +24,51 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /**
+   * Values of cart
+   * @param id 
+   * @returns item count 
+   */
   valueOfCart(id: string) {
     let exits = this.filterTheItemFromCart(id);
     return exits[0]?.cart;
   }
 
+  /**
+   * Disables addition
+   * @param id 
+   * @returns boolean 
+   */
   disableAddition(id: string) {
     let exits = this.filterTheItemFromCart(id);
     return exits[0]?.cart === exits[0]?.quantity;
   }
 
+  /**
+   * Hides the carts
+   * @param id 
+   * @returns boolean 
+   */
   hideTheCarts(id: string) {
     let exits = this.filterTheItemFromCart(id);
     return exits[0]?.cart > 0;
   }
 
+  /**
+   * Filters the item from cart
+   * @param id 
+   * @returns items 
+   */
   filterTheItemFromCart(id: string) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = cart.filter((item: any) => item.id === id);
     return exits;
   }
 
+  /**
+   * Determines whether add to cart is clicked 
+   * @param item 
+   */
   onClickAddToCart(item: any) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(item.id);
@@ -63,6 +87,10 @@ export class HomeComponent implements OnInit {
     this.cartItems = cart;
   }
 
+  /**
+   * Reduces quantity
+   * @param id 
+   */
   reduceQuantity(id: string) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(id);
@@ -82,6 +110,10 @@ export class HomeComponent implements OnInit {
     this.cartItems = cart;
   }
 
+  /**
+   * Increases quantity
+   * @param id 
+   */
   increaseQuantity(id: string) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(id);
