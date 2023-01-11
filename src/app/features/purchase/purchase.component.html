@@ -1,0 +1,34 @@
+<div>
+    <nav class="navbar" id="navbar">
+      <h1>Simple E-Kart</h1>
+      <i class="bi bi-house-door-fill"></i>
+      <button class="btn btn-light" type="button" routerLink="/home">
+        <i class="bi bi-house-door-fill">Home</i>
+      </button>
+    </nav>
+    <div class="cart-box">
+      <div class="m-3">
+        <h2 class="fs-2 text-secondary">Items purchased</h2>
+        <div>
+          <div class="item-decoration" *ngFor="let item of cart">
+            <img
+              aria-label="items"
+              [src]="item.imageURL"
+              [alt]="item.name"
+              [title]="item.name"
+            />
+            <div>
+              <h1>{{ item.name }}</h1>
+              <h1>₹{{ item.price }}</h1>
+            </div>
+            <div>
+              <div class="additional-container">
+                <h1 class="text-info">x{{ valueOfCart(item.id) }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
