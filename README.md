@@ -1,6 +1,42 @@
 # SimpleEkart
 
+* A small ecommerce web app, to display some products.
+* Used a public [API](https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json) to fetch the products.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+
+## How to use
+
+* List the products, user can add the product to the cart and change the quantity
+* Adding the product to the cart, should update the cart value in the header at runtime.
+* Cart page will show user the data in the cart, the user should be able to add/edit and delete this data.
+* Clicking on buy, will show user a page with all the things purchased.
+
+## Snapshots
+
+![image](https://user-images.githubusercontent.com/27736288/211914945-9ffe74d0-7e4d-4f18-8254-b4e2c82e8dd2.png)
+![image](https://user-images.githubusercontent.com/27736288/211915031-275ed419-0e86-4ad3-ac2f-9fcd4481086f.png)
+![image](https://user-images.githubusercontent.com/27736288/211915103-1e5af47e-bbce-4a6b-9219-beae73dfd418.png)
+![image](https://user-images.githubusercontent.com/27736288/211915266-e6e522b2-ba92-4a0d-869e-72d0c0a6e1be.png)
+
+## Future work
+
+* Add search, sort and filter functionalities
+* Fix bugs
+* Make app CSS responsive
+
+## Tech Stack
+
+* Angular
+* Netlify
+
+## Preview
+
+[View live](https://simple-ekart-gautam-balamurali.netlify.app)
+
+## License
+
+[View license](https://github.com/gautam-balamurali/simple-ekart/blob/master/LICENSE.md)
 
 ## Development server
 
