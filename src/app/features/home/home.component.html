@@ -1,0 +1,59 @@
+<div>
+  <nav class="navbar" id="navbar">
+    <h1>Simple E-Kart</h1>
+
+    <button
+      [matBadge]="cartItems.length"
+      matBadgePosition="before"
+      matBadgeColor="accent"
+      class="btn btn-light"
+      type="button"
+      routerLink="/cart"
+    >
+      <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>{{ "" }}
+    </button>
+  </nav>
+
+  <div class="body-container">
+    <div class="display-items">
+      <div class="box-size-item" *ngFor="let item of shoppingItems">
+        <img
+          aria-label="items"
+          [src]="item.imageURL"
+          [alt]="item.name"
+          [title]="item.name"
+        />
+        <div class="box-price-cart">
+          <h6 class="title-fit">{{ item.name }}</h6>
+          <h1>₹{{ item.price }}</h1>
+          <button
+            type="button"
+            class="btn btn-warning"
+            [disabled]="!item.quantity"
+            (click)="onClickAddToCart(item)"
+            *ngIf="!hideTheCarts(item.id) && item.quantity"
+          >
+            Add to cart</button
+          ><br />
+          <p *ngIf="!item.quantity" class="text-danger">item is unavailable</p>
+          <div *ngIf="hideTheCarts(item.id)" class="additional-container">
+            <button
+              class="btn btn-outline-info"
+              (click)="reduceQuantity(item.id)"
+            >
+              -
+            </button>
+            <h1 class="text-info">{{ valueOfCart(item.id) }}</h1>
+            <button
+              class="btn btn-outline-info"
+              (click)="increaseQuantity(item.id)"
+              [disabled]="disableAddition(item.id)"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

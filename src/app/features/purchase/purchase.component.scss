@@ -1,0 +1,93 @@
+$navBackgroundColor: #e0e7ff;
+$sideBarBackground: #a5b4fc;
+$navTextColor: #3730a3;
+$textColor: #4f46e5;
+
+.navbar {
+  h1 {
+    margin: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+  }
+  button {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 1rem;
+  }
+  width: 100vw;
+  position: relative;
+  background-color: $navBackgroundColor;
+  color: $navTextColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-decoration {
+  color: $textColor;
+  h1 {
+    font-family: system-ui;
+  }
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  margin: 50px;
+  width: 80vw;
+  background-color: $sideBarBackground;
+  img {
+    height: 150px;
+    width: 150px;
+    padding: 10px;
+  }
+  button {
+    height: 50px;
+    width: 75px;
+  }
+}
+
+.additional-container {
+  button {
+    height: 36px;
+    width: 36px;
+    font-weight: bolder;
+  }
+  h1 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  display: flex;
+  justify-content: space-around;
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    margin: 20rem;
+    text-align: center;
+    font-weight: bolder;
+    font-size: xx-large;
+  }
+}
+
+.total-price {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.purchase-btn {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 1rem;
+}
+
+.cart-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
