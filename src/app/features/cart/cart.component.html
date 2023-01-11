@@ -51,17 +51,19 @@
     <h1 class="fw-bold text-success ps-5 pb-5 fs-2 total-price">
       GRAND TOTAL = ₹{{ grandTotal }}
     </h1>
-    <button class="btn btn-light purchase-btn" type="button" routerLink="/purchase">
+    <button
+      class="btn btn-light purchase-btn"
+      type="button"
+      routerLink="/purchase"
+    >
       <i class="bi bi-house-door-fill">Purchase</i>
     </button>
   </div>
   <ng-template #emptyCart>
     <div class="no-data">
-      <h1>Cart is empty. Do some shopping.</h1>
-      <h1 class="fw-bold text-success ps-5 pb-5 fs-2" *ngIf="!cart.length">
-        Go For Shopping
-        <span
-          ><button class="btn btn-info" routerLink="/home">
+      <h1>
+        Cart is empty. Do some<span
+          ><button class="btn btn-info purchase-btn" routerLink="/home">
             Shopping
           </button></span
         >
