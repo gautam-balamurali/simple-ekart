@@ -5,9 +5,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
 
-## How to use
+## Problem Statement
 
-* List the products, user can add the product to the cart and change the quantity
+* List the products, user can add the product to the cart and change the quantity.
 * Adding the product to the cart, should update the cart value in the header at runtime.
 * Cart page will show user the data in the cart, the user should be able to add/edit and delete this data.
 * Clicking on buy, will show user a page with all the things purchased.
