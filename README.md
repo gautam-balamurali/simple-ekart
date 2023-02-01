@@ -1,16 +1,17 @@
 # SimpleEkart
 
-* A small ecommerce web app, to display some products.
-* Used a public [API](https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json) to fetch the products.
+- A small ecommerce web app, to display some products.
+- Used a json file to store the products.
+- Used a public [API](https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json) from [geektrust](https://www.geektrust.com/) to fill the json file.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
 
 ## Problem Statement
 
-* List the products, user can add the product to the cart and change the quantity.
-* Adding the product to the cart, should update the cart value in the header at runtime.
-* Cart page will show user the data in the cart, the user should be able to add/edit and delete this data.
-* Clicking on buy, will show user a page with all the things purchased.
+- List the products, user can add the product to the cart and change the quantity.
+- Adding the product to the cart, should update the cart value in the header at runtime.
+- Cart page will show user the data in the cart, the user should be able to add/edit and delete this data.
+- Clicking on buy, will show user a page with all the things purchased.
 
 ## Snapshots
 
@@ -21,14 +22,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Future work
 
-* Add search, sort and filter functionalities
-* Fix bugs
-* Make app CSS responsive
+- Add search, sort and filter functionalities
+- Fix bugs
+- Make app CSS responsive
 
 ## Tech Stack
 
-* Angular
-* Netlify
+- Angular
+- Netlify
 
 ## Preview
 
