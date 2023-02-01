@@ -10,14 +10,26 @@ export class PurchaseComponent implements OnInit {
 
   constructor() {}
 
+  /**
+   * Gets grand total
+   */
+  get grandTotal() {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let total = 0;
+    cart.forEach((item: any) => {
+      total += item.price * item.cart;
+    });
+    return total;
+  }
+
   ngOnInit(): void {
     this.cart = JSON.parse(localStorage.getItem('cart') || '[]');
   }
 
   /**
    * Filters the item from cart
-   * @param id 
-   * @returns items 
+   * @param id
+   * @returns items
    */
   filterTheItemFromCart(id: string) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -27,11 +39,18 @@ export class PurchaseComponent implements OnInit {
 
   /**
    * Values of cart
-   * @param id 
-   * @returns items count 
+   * @param id
+   * @returns items count
    */
   valueOfCart(id: string) {
     let exits = this.filterTheItemFromCart(id);
     return exits[0]?.cart;
+  }
+
+  /**
+   * Clears cache
+   */
+  clearCache() {
+    localStorage.clear();
   }
 }
