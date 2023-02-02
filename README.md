@@ -1,6 +1,6 @@
 # SimpleEkart
 
-- A small ecommerce web app, to display some products.
+- A small e-commerce web app, to display some products.
 - Used a json file to store the products.
 - Used a public [API](https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json) from [geektrust](https://www.geektrust.com/) to fill the json file.
 
