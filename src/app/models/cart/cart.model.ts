@@ -8,4 +8,5 @@ export interface CartModel {
   color: string;
   gender: string;
   quantity: number;
+  cartCount?: number;
 }
