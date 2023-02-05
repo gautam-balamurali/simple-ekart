@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartModel } from 'src/app/models/cart/cart.model';
 
 @Component({
   selector: 'app-purchase',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./purchase.component.scss'],
 })
 export class PurchaseComponent implements OnInit {
-  cart: any[] = [];
+  cart: CartModel[] = [];
 
   constructor() {}
 
@@ -16,8 +17,8 @@ export class PurchaseComponent implements OnInit {
   get grandTotal() {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let total = 0;
-    cart.forEach((item: any) => {
-      total += item.price * item.cart;
+    cart.forEach((item: CartModel) => {
+      total += item.price * item.cartCount;
     });
     return total;
   }
@@ -31,9 +32,9 @@ export class PurchaseComponent implements OnInit {
    * @param id
    * @returns items
    */
-  filterTheItemFromCart(id: string) {
+  filterTheItemFromCart(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    let exits = cart.filter((item: any) => item.id === id);
+    let exits = cart.filter((item: CartModel) => item.id === id);
     return exits;
   }
 
@@ -42,9 +43,9 @@ export class PurchaseComponent implements OnInit {
    * @param id
    * @returns items count
    */
-  valueOfCart(id: string) {
+  valueOfCart(id: number) {
     let exits = this.filterTheItemFromCart(id);
-    return exits[0]?.cart;
+    return exits[0]?.cartCount;
   }
 
   /**

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartModel } from 'src/app/models/cart/cart.model';
 
 @Component({
   selector: 'app-cart',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  cart: any[] = [];
+  cart: CartModel[] = [];
 
   constructor() {}
 
@@ -16,8 +17,8 @@ export class CartComponent implements OnInit {
   get grandTotal() {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let total = 0;
-    cart.forEach((item: any) => {
-      total += item.price * item.cart;
+    cart.forEach((item: CartModel) => {
+      total += item.price * item.cartCount;
     });
     return total;
   }
@@ -31,9 +32,9 @@ export class CartComponent implements OnInit {
    * @param id
    * @returns items
    */
-  filterTheItemFromCart(id: string) {
+  filterTheItemFromCart(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    let exits = cart.filter((item: any) => item.id === id);
+    let exits = cart.filter((item: CartModel) => item.id === id);
     return exits;
   }
 
@@ -41,16 +42,16 @@ export class CartComponent implements OnInit {
    * Reduces quantity
    * @param id
    */
-  reduceQuantity(id: string) {
+  reduceQuantity(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(id);
 
-    if (exits[0].cart === 1) {
+    if (exits[0].cartCount === 1) {
       cart = cart;
     } else {
-      cart = cart.map((item: any) => {
+      cart = cart.map((item: CartModel) => {
         if (item.id === id) {
-          return { ...item, cart: item.cart - 1 };
+          return { ...item, cartCount: item.cartCount - 1 };
         } else {
           return { ...item };
         }
@@ -64,14 +65,14 @@ export class CartComponent implements OnInit {
    * Increases quantity
    * @param id
    */
-  increaseQuantity(id: string) {
+  increaseQuantity(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(id);
 
-    if (exits[0].cart !== exits[0].quantity) {
-      cart = cart.map((item: any) => {
+    if (exits[0].cartCount !== exits[0].quantity) {
+      cart = cart.map((item: CartModel) => {
         if (item.id === id) {
-          return { ...item, cart: item.cart + 1 };
+          return { ...item, cartCount: item.cartCount + 1 };
         } else {
           return { ...item };
         }
@@ -86,9 +87,9 @@ export class CartComponent implements OnInit {
    * @param id
    * @returns items count
    */
-  valueOfCart(id: string) {
+  valueOfCart(id: number) {
     let exits = this.filterTheItemFromCart(id);
-    return exits[0]?.cart;
+    return exits[0]?.cartCount;
   }
 
   /**
@@ -96,9 +97,9 @@ export class CartComponent implements OnInit {
    * @param id
    * @returns boolean
    */
-  disableAddition(id: string) {
+  disableAddition(id: number) {
     let exits = this.filterTheItemFromCart(id);
-    return exits[0]?.cart === exits[0]?.quantity;
+    return exits[0]?.cartCount === exits[0]?.quantity;
   }
 
   /**
@@ -106,18 +107,18 @@ export class CartComponent implements OnInit {
    * @param id
    * @returns boolean
    */
-  disableReduce(id: string) {
+  disableReduce(id: number) {
     let exits = this.filterTheItemFromCart(id);
-    return exits[0]?.cart === 1;
+    return exits[0]?.cartCount === 1;
   }
 
   /**
    * Determines delete is clicked
    * @param id
    */
-  onDelete(id: string) {
+  onDelete(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    cart = cart.filter((item: any) => item.id !== id);
+    cart = cart.filter((item: CartModel) => item.id !== id);
     localStorage.setItem('cart', JSON.stringify(cart));
     this.cart = cart;
   }

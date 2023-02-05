@@ -39,7 +39,7 @@
                 +
               </button>
             </div>
-            <h1 class="text-dark">Total: ₹{{ item.cart * item.price }}</h1>
+            <h1 class="text-dark">Total: ₹{{ item.cartCount * item.price }}</h1>
           </div>
           <button class="btn btn-outline-danger" (click)="onDelete(item.id)">
             Delete

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteConstants } from 'src/app/config/route-constants';
+import { CartModel } from 'src/app/models/cart/cart.model';
 import { DataService } from '../../core/services/data.service';
 
 @Component({
@@ -8,80 +9,79 @@ import { DataService } from '../../core/services/data.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  shoppingItems: any = [];
-  searchedItems: any = [];
-  cartItems: any = JSON.parse(localStorage.getItem('cart') || '[]');
+  shoppingItems: CartModel[] = [];
+
+  cartItems: CartModel[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
   ROUT_CONST = RouteConstants.ROUTES;
 
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getCartData().subscribe((data) => {
+    this.dataService.getCartData().subscribe((data: CartModel[]) => {
       this.shoppingItems = data;
-      this.searchedItems = data;
       localStorage.setItem('products', JSON.stringify(data));
     });
   }
 
   /**
    * Values of cart
-   * @param id 
-   * @returns item count 
+   * @param id
+   * @returns item count
    */
-  valueOfCart(id: string) {
+  valueOfCart(id: number) {
     let exits = this.filterTheItemFromCart(id);
-    return exits[0]?.cart;
+    return exits[0]?.cartCount;
   }
 
   /**
    * Disables addition
-   * @param id 
-   * @returns boolean 
+   * @param id
+   * @returns boolean
    */
-  disableAddition(id: string) {
+  disableAddition(id: number) {
     let exits = this.filterTheItemFromCart(id);
-    return exits[0]?.cart === exits[0]?.quantity;
+    return exits[0]?.cartCount === exits[0]?.quantity;
   }
 
   /**
    * Hides the carts
-   * @param id 
-   * @returns boolean 
+   * @param id
+   * @returns boolean
    */
-  hideTheCarts(id: string) {
+  hideTheCarts(id: number) {
     let exits = this.filterTheItemFromCart(id);
-    return exits[0]?.cart > 0;
+    return exits[0]?.cartCount > 0;
   }
 
   /**
    * Filters the item from cart
-   * @param id 
-   * @returns items 
+   * @param id
+   * @returns items
    */
-  filterTheItemFromCart(id: string) {
+  filterTheItemFromCart(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    let exits = cart.filter((item: any) => item.id === id);
+    let exits = cart.filter((item: CartModel) => item.id === id);
     return exits;
   }
 
   /**
-   * Determines whether add to cart is clicked 
-   * @param item 
+   * Determines whether add to cart is clicked
+   * @param item
    */
-  onClickAddToCart(item: any) {
+  onClickAddToCart(item: CartModel) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(item.id);
     if (exits.length) {
-      cart = cart.map((item: any) => {
+      cart = cart.map((item: CartModel) => {
         if (item.id === item.id) {
-          return { ...item, cart: item.cart ? item.cart + 1 : 1 };
+          return { ...item, cartCount: item.cartCount ? item.cartCount + 1 : 1 };
         } else {
           return { ...item };
         }
       });
     } else {
-      cart.push({ ...item, cart: 1 });
+      cart.push({ ...item, cartCount: 1 });
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     this.cartItems = cart;
@@ -89,18 +89,18 @@ export class HomeComponent implements OnInit {
 
   /**
    * Reduces quantity
-   * @param id 
+   * @param id
    */
-  reduceQuantity(id: string) {
+  reduceQuantity(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(id);
 
-    if (exits[0].cart === 1) {
-      cart = cart.filter((item: any) => item.id !== id);
+    if (exits[0].cartCount === 1) {
+      cart = cart.filter((item: CartModel) => item.id !== id);
     } else {
-      cart = cart.map((item: any) => {
+      cart = cart.map((item: CartModel) => {
         if (item.id === id) {
-          return { ...item, cart: item.cart - 1 };
+          return { ...item, cartCount: item.cartCount - 1 };
         } else {
           return { ...item };
         }
@@ -112,16 +112,16 @@ export class HomeComponent implements OnInit {
 
   /**
    * Increases quantity
-   * @param id 
+   * @param id
    */
-  increaseQuantity(id: string) {
+  increaseQuantity(id: number) {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
     let exits = this.filterTheItemFromCart(id);
 
-    if (exits[0].cart !== exits[0].quantity) {
-      cart = cart.map((item: any) => {
+    if (exits[0].cartCount !== exits[0].quantity) {
+      cart = cart.map((item: CartModel) => {
         if (item.id === id) {
-          return { ...item, cart: item.cart + 1 };
+          return { ...item, cartCount: item.cartCount + 1 };
         } else {
           return { ...item };
         }
