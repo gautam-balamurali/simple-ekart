@@ -25,6 +25,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Add search, sort and filter functionalities
 - Fix bugs
 - Make app CSS responsive
+- Beautify the app
 
 ## Tech Stack
 
