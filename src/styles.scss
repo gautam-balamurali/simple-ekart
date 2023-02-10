@@ -1,8 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-button{
-    cursor: pointer;
+:root {
+  --navBackgroundColor: #e0e7ff;
+  --navTextColor: #3730a3;
+  --textColor: #4f46e5;
+  --backgroundColor: #ecfeff;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--backgroundColor);
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: var(--textColor);
+  color: var(--backgroundColor);
+  background-color: var(--textColor);
+}
+
+button:hover {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: var(--textColor);
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  border-width: 1px;
+  border: none;
+  color: var(--navBackgroundColor);
+  background-color: var(--backgroundColor);
+}
+
+.navbar {
+  h1 {
+    margin: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-family: "Montserrat", sans-serif;
+  }
+  button {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 1rem;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: var(--navTextColor);
+    color: var(--navTextColor);
+    background-color: var(--backgroundColor);
+  }
+  button:hover {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 1rem;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: var(--backgroundColor);
+    color: var(--backgroundColor);
+    background-color: var(--navTextColor);
+  }
+  width: 100%;
+  position: relative;
+  background-color: var(--navBackgroundColor);
+  color: var(--navTextColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 330px) {
+  .navbar {
+    width: 140%;
+  }
 }
