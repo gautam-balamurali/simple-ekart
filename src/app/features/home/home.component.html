@@ -5,7 +5,7 @@
     <button
       [matBadge]="cartItems.length"
       matBadgePosition="before"
-      matBadgeColor="accent"
+      matBadgeColor="primary"
       class="btn btn-light"
       type="button"
       routerLink="/cart"
@@ -25,7 +25,7 @@
         />
         <div class="box-price-cart">
           <h6 class="title-fit">{{ item.name }}</h6>
-          <h1>₹{{ item.price }}</h1>
+          <h1 class="prod-price">₹{{ item.price }}</h1>
           <button
             type="button"
             class="btn btn-warning"
@@ -37,15 +37,9 @@
           ><br />
           <p *ngIf="!item.quantity" class="text-danger">item is unavailable</p>
           <div *ngIf="hideTheCarts(item.id)" class="additional-container">
-            <button
-              class="btn btn-outline-info"
-              (click)="reduceQuantity(item.id)"
-            >
-              -
-            </button>
+            <button (click)="reduceQuantity(item.id)">-</button>
             <h1 class="text-info">{{ valueOfCart(item.id) }}</h1>
             <button
-              class="btn btn-outline-info"
               (click)="increaseQuantity(item.id)"
               [disabled]="disableAddition(item.id)"
             >

@@ -1,33 +1,11 @@
-$navBackgroundColor: #e0e7ff;
-$navTextColor: #3730a3;
-
-.navbar {
-  h1 {
-    margin: 1rem;
-    font-weight: 600;
-    padding: 1rem;
-  }
-
-  button {
-    font-weight: bold;
-    font-size: 20px;
-    margin: 1rem;
-  }
-
-  width: 100vw;
-  position: relative;
-  background-color: $navBackgroundColor;
-  color: $navTextColor;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .body-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--backgroundColor);
+  min-height: calc(100vh - 4rem - 4rem);
+  color: var(--textColor);
 }
 
 .additional-container {
@@ -35,10 +13,16 @@ $navTextColor: #3730a3;
     height: 36px;
     width: 36px;
     font-weight: bolder;
+    font-family: "Montserrat", sans-serif;
+    margin: 0rem -1rem;
   }
   h1 {
     padding-left: 15px;
     padding-right: 15px;
+    font-family: "Montserrat", sans-serif;
+  }
+  .text-info {
+    padding: 0 1.5rem;
   }
   width: 50%;
   display: flex;
@@ -47,7 +31,7 @@ $navTextColor: #3730a3;
 
 .display-items {
   display: flex;
-  width: 80vw;
+  width: 80%;
   height: 100%;
   justify-content: center;
   flex-wrap: wrap;
@@ -58,9 +42,10 @@ $navTextColor: #3730a3;
   width: 250px;
   height: auto;
   margin: 30px;
-  padding: 20px;
-  background-color: $navBackgroundColor;
+  padding: 2px 30px 10px 30px;
+  background-color: var(--navBackgroundColor);
   position: relative;
+  color: var(--textColor);
   img {
     width: 100%;
     object-fit: fill;
@@ -68,17 +53,61 @@ $navTextColor: #3730a3;
   }
   .title-fit {
     display: inline-block;
-    color: #0a352a;
     font-size: 20px;
     font-weight: bolder;
+    font-family: "Montserrat", sans-serif;
+    width: min-content;
   }
   .box-price-cart {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    .prod-price {
+      margin: 0 1rem 0 1rem;
+    }
   }
 }
 
-.text-danger{
+.text-danger {
   color: red;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 1700px) {
+  .display-items {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1260px) {
+  .display-items {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .display-items {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .display-items {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .display-items {
+    width: 140%;
+    padding-inline-start: 8rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .display-items {
+    width: 140%;
+    padding-inline-start: 7rem;
+  }
 }
