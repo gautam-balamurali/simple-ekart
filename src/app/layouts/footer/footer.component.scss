@@ -26,7 +26,6 @@ $footerTextColor: #3730a3;
   background-color: $footerBackgroundColor;
   color: $footerTextColor;
   padding: 2rem 0rem;
-  border-top-right-radius: 1rem;
   text-align: center;
 }
 
@@ -41,4 +40,10 @@ $footerTextColor: #3730a3;
 
 .footer .link {
   color: $footerTextColor;
+}
+
+@media screen and (max-width: 330px) {
+  .footer {
+    width: 140%;
+  }
 }
