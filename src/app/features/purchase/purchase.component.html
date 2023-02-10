@@ -3,19 +3,19 @@
     <h1 style="cursor: pointer" (click)="clearCache()" routerLink="/home">
       Simple E-Kart
     </h1>
-    <i class="bi bi-house-door-fill"></i>
+    <strong class="bi bi-house-door-fill"></strong>
     <button
       class="btn btn-light"
       type="button"
       (click)="clearCache()"
       routerLink="/home"
     >
-      <i class="bi bi-house-door-fill">Home</i>
+      <strong class="bi bi-house-door-fill">Home</strong>
     </button>
   </nav>
   <div class="cart-box">
     <div class="m-3">
-      <h2 class="fs-2 text-secondary">Items purchased</h2>
+      <h2>Items purchased</h2>
       <div>
         <div class="item-decoration" *ngFor="let item of cart">
           <img
@@ -45,7 +45,7 @@
       (click)="clearCache()"
       routerLink="/home"
     >
-      <i class="bi bi-house-door-fill">Do more shopping?</i>
+      <strong class="bi bi-house-door-fill">Do more shopping?</strong>
     </button>
   </div>
 </div>
