@@ -34,11 +34,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Preview
 
-[View live](https://simple-ekart-gautam-balamurali.netlify.app)
+[View Live](https://simple-ekart-gautam-balamurali.netlify.app)
 
 ## License
 
-[View license](https://github.com/gautam-balamurali/simple-ekart/blob/master/LICENSE.md)
+[View License](https://github.com/gautam-balamurali/simple-ekart/blob/master/LICENSE.md)
 
 ## Development server
 
